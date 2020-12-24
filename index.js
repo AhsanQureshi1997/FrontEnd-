@@ -1,30 +1,20 @@
-console.log('Before');
-
- getUser(1, function(user){
-    console.log('User', user);
-    getRepositories(user.gitHubUsername, (repos)=>{
-    console.log('Repos', repos);
- });
-});
-
-console.log('After');
-
-//Callbacks
-// Promises
-//Asyc/wait
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.css';
+import Counter from './components/counter';
 
 
-function getUser(id, callback){ 
-setTimeout(() => {
-    console.log('Whats up homies');
-    callback({id: id, gitHubUsername: 'Ahsan'});
-}, 500);
-}
+ReactDOM.render(
+  <React.StrictMode>
+    <Counter />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-function getRepositories(username, callback){
-    setTimeout(()=>{
-        console.log('Calling API');
-        callback(['repo1', 'repo2', 'repo3']);
-
-    }, 2000);
-}
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
